@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 
-public class CashDeckTest 
+public class CashDeskTest 
 {
 	
     @Test
@@ -68,6 +68,13 @@ public class CashDeckTest
     {
     	Food item = new Food(9, "imported box of chocolates", 11.25f, true);
     	assertEquals(11.85f, CashDesk.getTaxedPrice(item));
+    }
+    
+    @Test
+    public void getTaxedPrice_10()
+    {
+    	MedicalProduct item = new MedicalProduct(8, "imported packet of headache pills", 12.79f, true);
+    	assertEquals(13.44f, CashDesk.getTaxedPrice(item));
     }
     
     @Test

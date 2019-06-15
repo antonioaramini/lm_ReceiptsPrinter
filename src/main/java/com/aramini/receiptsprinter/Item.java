@@ -1,5 +1,8 @@
 package com.aramini.receiptsprinter;
 
+/*
+ * Parent class for all buyable goods; contains all the shared attributes.
+ */
 public abstract class Item 
 {
 	private int id;

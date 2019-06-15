@@ -7,6 +7,30 @@ import com.aramini.receiptsprinter.exceptions.UnknownItemIdException;
 
 import javafx.util.*;
 
+/*
+ * Class used to parse the input text in order to obtain a shopping basket filled with Items.
+ * It must be said that in a real scenario it doesn't make sense to receive only the name of the item as an input 
+ * as that can create issues (e.g. how do we distinguish two items with the same name?).
+ * In a real scenario we should receive either the barcode or the ID of the item to uniquely identify it (and its 
+ * properties, such as the price).
+ * In addition, a strong assumption of this parser is that the input text is properly formatted (i.e. the string is 
+ * checked before being sent to the backend system, thus the parser denies any possibility of bad formatting).
+ * Given these considerations, two methods are provided for reading the input:
+ * 1) createBasketFromInputTextWithId [In case the input is in the form "<Quantity> <ItemID>"]
+ * 2) createBasketFromInputText		  [In case the input is in the form "<Quantity> <ItemName> at <ItemPrice>"] 
+ * 
+ * The first method should normally rely on a database query to retrieve the item information given its primary key (the ID).
+ * For this assignment I simplify by using an hashmap with the objects of interest for the final result.
+ * 
+ * The second method relies on dictionaries (concretely implemented as hashsets) containing keywords that can appear 
+ * in the item name and thus help in categorizing the item itself.
+ * Clearly the dictionaries I use only contain the keywords needed for the final result of the assignment;
+ * in order to have a "general" solution the dictionaries should be way bigger.
+ * 
+ * I strongly advise not to use the second method in a real environment as it doesn't scale well 
+ * (how big should the dictionaries be to fully cover the goods catalogue?).
+ * The first method (DB query) should always be the one of choice.
+ */
 public class InputParser 
 {
 	// Mapping Id of Item to the Item itself.
@@ -26,6 +50,7 @@ public class InputParser
 	{
 		itemsMap = new HashMap<Integer, Item>();
 		
+		// Test data... these should be retrieved from a DB and not hardcoded like this.
 		itemsMap.put(123000, new Book(123000, "book", 12.49f, false));
 		itemsMap.put(123001, new UncategorizedGood(123001, "music CD", 14.99f, false));
 		itemsMap.put(123002, new Food(123002, "chocolate bar", 0.85f, false));

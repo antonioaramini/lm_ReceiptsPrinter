@@ -4,6 +4,9 @@ import java.util.Locale;
 
 import javafx.util.Pair;
 
+/*
+ * Utility class used to compute the taxed price of items and to create the final receipt for a shopping basket.
+ */
 public class CashDesk 
 {
 	public static Receipt createReceipt(ShoppingBasket basket)

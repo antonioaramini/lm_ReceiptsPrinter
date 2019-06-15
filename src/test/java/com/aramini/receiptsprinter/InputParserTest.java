@@ -41,7 +41,7 @@ public class InputParserTest
     }
     
     @Test
-    public void getItemFromInputLine_SuccessMedicalProduct()
+    public void getItemFromInputLine_MedicalProduct()
     {
     	Pair<Item,Integer> p = inputParser.getItemFromInputLine("1 packet of headache pills at 9.75");
     	
@@ -53,7 +53,7 @@ public class InputParserTest
     }
     
     @Test
-    public void getItemFromInputLine_SuccessBook()
+    public void getItemFromInputLine_Book()
     {
     	Pair<Item,Integer> p = inputParser.getItemFromInputLine("1 book at 12.49");
     	
@@ -65,7 +65,7 @@ public class InputParserTest
     }
     
     @Test
-    public void getItemFromInputLine_SuccessFood()
+    public void getItemFromInputLine_Food()
     {
     	Pair<Item,Integer> p = inputParser.getItemFromInputLine("10 chocolate bar at 0.85");
     	
@@ -77,7 +77,7 @@ public class InputParserTest
     }
     
     @Test
-    public void getItemFromInputLine_SuccessUncategorizedGood()
+    public void getItemFromInputLine_UncategorizedGood()
     {
     	Pair<Item,Integer> p = inputParser.getItemFromInputLine("3 imported music CD at 4.56");
     	

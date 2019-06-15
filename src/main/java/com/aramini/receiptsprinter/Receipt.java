@@ -1,7 +1,7 @@
 package com.aramini.receiptsprinter;
 
 /*
- * Simple wrapper class for the text on the receipt.
+ * Wrapper class for the text on the receipt.
  */
 public class Receipt 
 {
