@@ -61,8 +61,8 @@ properties, such as the price).
 In addition, a strong assumption of the InputParser is that the input text is properly formatted (i.e. the string is 
 checked before being sent to the backend system, thus the parser denies any possibility of bad formatting).
 Given these considerations, two methods are provided for reading the input:
-1) createBasketFromInputTextWithId [In case the input is in the form "<Quantity> <ItemID>"]
-2) createBasketFromInputText		  [In case the input is in the form "<Quantity> <ItemName> at <ItemPrice>"] 
+1) createBasketFromInputTextWithId (In case the input is in the form "_Quantity_ _ItemID_")  
+2) createBasketFromInputText		  (In case the input is in the form "_Quantity_ _ItemName_ at _ItemPrice_")  
 
 The first method should normally rely on a database query to retrieve the item information given its primary key (the ID).
 For this assignment I simplify by using an hashmap with the objects of interest for the final result.
