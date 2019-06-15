@@ -54,6 +54,13 @@ Total: 74.68
 
 ## My considerations  
 
+First, it comes very natural to define classes for the goods. A generic and abstract Item class from which all the "real" products inherit allows to group shared attributes and to easily apply polymorphism.  
+Classes inheriting from Item:  
+- Book
+- Food
+- MedicalProduct
+- UncategorizedItem
+
 It must be said that in a real scenario it doesn't make sense to receive only the name of the item as an input 
 as that can create issues (e.g. how do we distinguish two items with the same name?).
 In a real scenario we should receive either the barcode or the ID of the item to uniquely identify it (and its 
@@ -68,10 +75,10 @@ The first method should normally rely on a database query to retrieve the item i
 For this assignment I simplify by using an hashmap with the objects of interest for the final result.
 
 The second method relies on dictionaries (concretely implemented as hashsets) containing keywords that can appear 
-in the item name and thus help in categorizing the item itself.
+in the item name and thus helping in categorizing the item itself.  
 Clearly the dictionaries I use only contain the keywords needed for the final result of the assignment;
 in order to have a "general" solution the dictionaries should be way bigger.
 
 I strongly advise not to use the second method in a real environment as it doesn't scale well 
-(how big should the dictionaries be to fully cover the goods catalogue?).
+(how big should the dictionaries be to fully cover the goods catalogue?).  
 The first method (DB query) should always be the one of choice.
