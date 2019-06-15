@@ -70,13 +70,10 @@ Finally the two classes implementing the business logic:
 - InputParser (responsible for creating the ShoppingBasket from the initial list of bought items)
 - CashDesk (used to compute the taxed prices and create the final Receipt)
 
-It must be said that in a real scenario it doesn't make sense to receive only the name of the item as an input 
-as that can create issues (e.g. how do we distinguish two items with the same name?).
-In a real scenario we should receive either the barcode or the ID of the item to uniquely identify it (and its 
-properties, such as the price).
-In addition, a strong assumption of the InputParser is that the input text is properly formatted (i.e. the string is 
-checked before being sent to the backend system, thus the parser denies any possibility of bad formatting).
-Given these considerations, two methods are provided for reading the input:
+It must be said that in a real scenario it doesn't make sense to receive only the name of the item as an input as that can create issues (e.g. how do we distinguish two items with the same name?).  
+In a real scenario we should receive either the barcode or the ID of the item to uniquely identify it (and its properties, such as the price).  
+In addition, a strong assumption of the InputParser is that the input text is properly formatted (i.e. the string is checked before being sent to the backend system, thus the parser denies any possibility of bad formatting).  
+Given these considerations, two methods are provided for reading the input:  
 1) createBasketFromInputTextWithId (In case the input is in the form "_Quantity_ _ItemID_")  
 2) createBasketFromInputText		  (In case the input is in the form "_Quantity_ _ItemName_ at _ItemPrice_")  
 
