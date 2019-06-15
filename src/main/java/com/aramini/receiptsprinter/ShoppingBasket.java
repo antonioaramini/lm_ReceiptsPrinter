@@ -1,14 +1,15 @@
 package com.aramini.receiptsprinter;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import javafx.util.Pair;
 
 public class ShoppingBasket 
 {
-	private HashMap<Item, Integer> basket;
+	private ArrayList<Pair<Item, Integer>> basket;
 	
 	public ShoppingBasket()
 	{
-		this.basket=new HashMap<Item, Integer>();
+		this.basket=new ArrayList<Pair<Item,Integer>>();
 	}
 	
 	public void clearBasket()
@@ -16,16 +17,14 @@ public class ShoppingBasket
 		basket.clear();
 	}
 	
-	public void addItem(Item item)
+	public void addItem(Pair<Item,Integer> item)
 	{
-		if (basket.containsKey(item))
-			basket.put(item, basket.get(item)+1);
-		else
-			basket.put(item, 1);
+		basket.add(item);
 	}
 	
-	public void removeItem(Item item)
+	public ArrayList<Pair<Item, Integer>> getBasket()
 	{
-		basket.remove(item);
+		return basket;
 	}
+	
 }

@@ -97,4 +97,24 @@ public class InputParser
 		return new Pair<Item,Integer>(item,quantity);
 	}
 	
+	public ShoppingBasket createBasketFromInputTextWithId(String inputText) throws UnknownItemIdException
+	{
+		ShoppingBasket basket = new ShoppingBasket();
+		String[] lines = inputText.split("\r\n");
+		for(String l:lines)
+			basket.addItem(getItemFromInputLineWithId(l));
+		
+		return basket;
+	}
+	
+	public ShoppingBasket createBasketFromInputText(String inputText)
+	{
+		ShoppingBasket basket = new ShoppingBasket();
+		String[] lines = inputText.split("\\r?\\n");
+		for(String l:lines)
+			basket.addItem(getItemFromInputLine(l));
+		
+		return basket;
+	}
+	
 }

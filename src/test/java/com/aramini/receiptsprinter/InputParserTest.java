@@ -87,4 +87,44 @@ public class InputParserTest
     	assertEquals(3, p.getValue());
     	assertEquals(GenericItem.class, p.getKey().getClass());
     }
+    
+    @Test
+    public void createShoppingBasketFromInputTextWithId_Success() throws UnknownItemIdException
+    {
+    	String input = "1 123000\r\n" + "1 123001\r\n" + "1 123002\r\n";
+    	ShoppingBasket basket = inputParser.createBasketFromInputTextWithId(input);
+    	
+    	assertEquals(3, basket.getBasket().size());
+    	assertEquals(123000, basket.getBasket().get(0).getKey().getId());
+    	assertEquals("book", basket.getBasket().get(0).getKey().getName());
+    	assertEquals(12.49f, basket.getBasket().get(0).getKey().getPrice());
+    	assertEquals(1, basket.getBasket().get(0).getValue());
+    	assertEquals(123001, basket.getBasket().get(1).getKey().getId());
+    	assertEquals("music CD", basket.getBasket().get(1).getKey().getName());
+    	assertEquals(14.99f, basket.getBasket().get(1).getKey().getPrice());
+    	assertEquals(1, basket.getBasket().get(1).getValue());
+    	assertEquals(123002, basket.getBasket().get(2).getKey().getId());
+    	assertEquals("chocolate bar", basket.getBasket().get(2).getKey().getName());
+    	assertEquals(0.85f, basket.getBasket().get(2).getKey().getPrice());
+    	assertEquals(1, basket.getBasket().get(2).getValue());
+    }
+    
+    @Test
+    public void createShoppingBasketFromInputText_Success()
+    {
+    	String input = "1 book at 12.49\r\n" + "1 music CD at 14.99\r\n" + "1 chocolate bar at 0.85\r\n";
+    	ShoppingBasket basket = inputParser.createBasketFromInputText(input);
+    	
+    	assertEquals(3, basket.getBasket().size());
+    	assertEquals("book", basket.getBasket().get(0).getKey().getName());
+    	assertEquals(12.49f, basket.getBasket().get(0).getKey().getPrice());
+    	assertEquals(1, basket.getBasket().get(0).getValue());
+    	assertEquals("music CD", basket.getBasket().get(1).getKey().getName());
+    	assertEquals(14.99f, basket.getBasket().get(1).getKey().getPrice());
+    	assertEquals(1, basket.getBasket().get(1).getValue());
+    	assertEquals("chocolate bar", basket.getBasket().get(2).getKey().getName());
+    	assertEquals(0.85f, basket.getBasket().get(2).getKey().getPrice());
+    	assertEquals(1, basket.getBasket().get(2).getValue());
+    }
+    
 }
