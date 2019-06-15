@@ -27,11 +27,11 @@ public class InputParser
 		itemsMap = new HashMap<Integer, Item>();
 		
 		itemsMap.put(123000, new Book(123000, "book", 12.49f, false));
-		itemsMap.put(123001, new GenericItem(123001, "music CD", 14.99f, false));
+		itemsMap.put(123001, new UncategorizedGood(123001, "music CD", 14.99f, false));
 		itemsMap.put(123002, new Food(123002, "chocolate bar", 0.85f, false));
 		itemsMap.put(123003, new Food(123003, "imported box of chocolates", 10.00f, true));
-		itemsMap.put(123004, new GenericItem(123004, "imported bottle of perfume", 47.50f, true));
-		itemsMap.put(123005, new GenericItem(123005, "imported bottle of perfume", 27.99f, true));
+		itemsMap.put(123004, new UncategorizedGood(123004, "imported bottle of perfume", 47.50f, true));
+		itemsMap.put(123005, new UncategorizedGood(123005, "imported bottle of perfume", 27.99f, true));
 		itemsMap.put(123006, new Book(123006, "bottle of perfume", 18.99f, false));
 		itemsMap.put(123007, new Book(123007, "packet of headache pills", 9.75f, false));
 		itemsMap.put(123008, new Book(123008, "box of imported chocolates", 11.25f, true));
@@ -88,7 +88,7 @@ public class InputParser
 			}
 		}
 		if (item == null)
-			item = new GenericItem();
+			item = new UncategorizedGood();
 		
 		item.setName(itemName);
 		item.setPrice(itemPrice);

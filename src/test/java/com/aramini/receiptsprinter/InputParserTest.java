@@ -37,7 +37,7 @@ public class InputParserTest
     	assertEquals(14.99f, p.getKey().getPrice());
     	assertEquals(false, p.getKey().isImported());
     	assertEquals(1, p.getValue());
-    	assertEquals(GenericItem.class, p.getKey().getClass());
+    	assertEquals(UncategorizedGood.class, p.getKey().getClass());
     }
     
     @Test
@@ -77,7 +77,7 @@ public class InputParserTest
     }
     
     @Test
-    public void getItemFromInputLine_SuccessGenericItem()
+    public void getItemFromInputLine_SuccessUncategorizedGood()
     {
     	Pair<Item,Integer> p = inputParser.getItemFromInputLine("3 imported music CD at 4.56");
     	
@@ -85,7 +85,7 @@ public class InputParserTest
     	assertEquals(4.56f, p.getKey().getPrice());
     	assertEquals(true, p.getKey().isImported());
     	assertEquals(3, p.getValue());
-    	assertEquals(GenericItem.class, p.getKey().getClass());
+    	assertEquals(UncategorizedGood.class, p.getKey().getClass());
     }
     
     @Test
