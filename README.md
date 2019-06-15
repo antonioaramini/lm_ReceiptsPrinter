@@ -54,12 +54,21 @@ Total: 74.68
 
 ## My considerations  
 
-First, it comes very natural to define classes for the goods. A generic and abstract Item class from which all the "real" products inherit allows to group shared attributes and to easily apply polymorphism.  
+First, it comes very natural to define classes for the goods that can be bought. These classes don't implement any business logic, but only contain data.  
+A generic and abstract Item class from which all the "real" products inherit allows to group shared attributes and to easily apply polymorphism.  
 Classes inheriting from Item:  
 - Book
 - Food
 - MedicalProduct
 - UncategorizedItem
+
+Two wrapper classes are defined for:  
+- ShoppingBasket (the shopping basket itself, containing the list of bought items and their quantities)
+- Receipt (the final receipt, showing all prices)
+
+Finally the two classes implementing the business logic:  
+- InputParser (responsible for creating the ShoppingBasket from the initial list of bought items)
+- CashDesk (used to compute the taxed prices and create the final Receipt)
 
 It must be said that in a real scenario it doesn't make sense to receive only the name of the item as an input 
 as that can create issues (e.g. how do we distinguish two items with the same name?).
