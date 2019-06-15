@@ -23,7 +23,7 @@ import javafx.util.*;
  * For this assignment I simplify by using an hashmap with the objects of interest for the final result.
  * 
  * The second method relies on dictionaries (concretely implemented as hashsets) containing keywords that can appear 
- * in the item name and thus help in categorizing the item itself.
+ * in the item name and thus helping in categorizing the item itself.
  * Clearly the dictionaries I use only contain the keywords needed for the final result of the assignment;
  * in order to have a "general" solution the dictionaries should be way bigger.
  * 
