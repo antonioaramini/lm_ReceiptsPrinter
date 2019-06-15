@@ -3,7 +3,9 @@ package com.aramini.receiptsprinter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-
+/*
+ * Unit tests for CashDesk class.
+ */
 public class CashDeskTest 
 {
 	
@@ -121,6 +123,17 @@ public class CashDeskTest
     	Receipt receipt = CashDesk.createReceipt(basket);
     	
     	assertEquals("2 book: 24.98\n" + "3 music CD: 49.47\n" + "2 chocolate bar: 1.70\n" + "Sales Taxes: 4.50\n" + "Total: 76.15\n", receipt.toString());
+    }
+    
+    @Test
+    public void createReceipt_Input5()
+    {
+    	InputParser inputParser = new InputParser();
+    	String input = "2 book at 12.49\r\n" + "3 music CD at 14.99\r\n" + "10 chocolate bar at 0.85\r\n";
+    	ShoppingBasket basket = inputParser.createBasketFromInputText(input);
+    	Receipt receipt = CashDesk.createReceipt(basket);
+    	
+    	assertEquals("2 book: 24.98\n" + "3 music CD: 49.47\n" + "10 chocolate bar: 8.50\n" + "Sales Taxes: 4.50\n" + "Total: 82.95\n", receipt.toString());
     }
     
 }

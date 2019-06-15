@@ -10,7 +10,9 @@ import com.aramini.receiptsprinter.exceptions.*;
 
 import javafx.util.Pair;
 
-
+/*
+ * Unit tests for InputParser class.
+ */
 public class InputParserTest 
 {
 	private InputParser inputParser;
