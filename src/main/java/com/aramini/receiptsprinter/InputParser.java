@@ -44,6 +44,7 @@ public class InputParser
 		
 		foodKeywords = new HashSet<String>();
 		foodKeywords.add("chocolate");
+		foodKeywords.add("chocolates");
 		
 		medProdKeywords = new HashSet<String>();
 		medProdKeywords.add("headache");
